@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Glow & Grace</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="site.css">
+
+  <style>
+    :root {
+      --primary: #c23b65;
+      --primary-dark: #9e2a4f;
+      --text-dark: #222222;
+      --text-muted: #666666;
+      --white: #ffffff;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Poppins', sans-serif; color: var(--text-dark); background: #ffffff; }
+
+    /* Navbar */
+    .navbar {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 16px 5%; background: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    }
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo-icon { width: 38px; height: 38px; color: var(--primary); }
+    .logo-text h1 { font-family: 'Playfair Display', serif; font-size: 24px; color: #222; line-height: 1; }
+    .logo-text span { font-size: 8px; letter-spacing: 2.5px; font-weight: 600; color: #555; display: block; }
+    .nav-links { display: flex; list-style: none; gap: 24px; }
+    .nav-links a { text-decoration: none; color: #444; font-size: 13.5px; font-weight: 500; }
+    .nav-links a.active { color: var(--primary); font-weight: 600; border-bottom: 2px solid var(--primary); padding-bottom: 4px; }
+    .btn-header {
+      background: var(--primary); color: #fff; border: none; padding: 9px 20px;
+      border-radius: 6px; font-size: 13px; cursor: pointer; display: flex; align-items: center; gap: 7px;
+    }
+
+    /* Hero */
+    .hero-banner {
+      background: linear-gradient(rgba(36, 17, 23, 0.65), rgba(36, 17, 23, 0.65)),
+                  url('https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=1200&auto=format&fit=crop') center/cover;
+      padding: 50px 5%; text-align: center; color: #fff;
+    }
+    .hero-banner h1 { font-family: 'Playfair Display', serif; font-size: 38px; margin-bottom: 5px; }
+    .hero-banner p { font-size: 14px; opacity: 0.9; }
+
+    /* Contact Content */
+    .contact-container {
+      padding: 45px 5%; display: grid; grid-template-columns: 1fr 1.15fr; gap: 40px;
+    }
+
+    /* Left Info */
+    .contact-info { display: flex; flex-direction: column; gap: 22px; }
+    .info-box { display: flex; align-items: flex-start; gap: 14px; }
+    .info-icon {
+      width: 38px; height: 38px; border-radius: 50%; background: #fdedf2;
+      color: var(--primary); display: flex; align-items: center; justify-content: center;
+      font-size: 15px; flex-shrink: 0;
+    }
+    .info-text h4 { font-size: 13px; font-weight: 600; color: #222; margin-bottom: 2px; }
+    .info-text p, .info-text a { font-size: 12.5px; color: #666; text-decoration: none; line-height: 1.5; }
+
+    /* Right Form & Map */
+    .contact-right { display: flex; flex-direction: column; gap: 20px; }
+    .map-box {
+      width: 100%; height: 160px; border-radius: 10px; overflow: hidden;
+      border: 1px solid #f0d5de;
+    }
+    .map-box iframe { width: 100%; height: 100%; border: none; }
+
+    .form-box {
+      background: #ffffff; border: 1px solid #f0d5de; border-radius: 12px;
+      padding: 24px; box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    }
+    .form-box h3 { font-size: 16px; font-weight: 600; margin-bottom: 16px; }
+    
+    .form-group { margin-bottom: 14px; }
+    .form-control {
+      width: 100%; border: 1px solid #e5d1d8; border-radius: 6px;
+      padding: 10px 14px; font-size: 12.5px; font-family: inherit; outline: none;
+    }
+    .form-control:focus { border-color: var(--primary); }
+    textarea.form-control { resize: none; height: 90px; }
+    
+    .btn-submit {
+      width: 100%; background: var(--primary); color: #fff; border: none;
+      padding: 11px; border-radius: 6px; font-size: 13.5px; font-weight: 500; cursor: pointer;
+    }
+
+    @media (max-width: 850px) {
+      .nav-links { display: none; }
+      .contact-container { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <a href="index.html" class="logo">
+      <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3c-2 4-5 6-9 7 3 2 6 2 9 7 3-5 6-5 9-7-4-1-7-3-9-7z"/><path d="M12 10c-1.5 2-3 3-6 3.5 2 1.5 4 1.5 6 4.5 2-3 4-3 6-4.5-3-.5-4.5-1.5-6-3.5z"/></svg>
+      <div class="logo-text"><h1>Glow & Grace</h1><span>BEAUTY PARLOUR</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="service.html">Services</a></li>
+      <li><a href="bridal.html">Bridal</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="offer.html">Offers</a></li>
+      <li><a href="team.html">Team</a></li><li><a href="review.html">Reviews</a></li><li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+    <button class="btn-header"><i class="fa-regular fa-calendar-check"></i> Book Appointment</button>
+  </header>
+
+  <!-- HERO -->
+  <div class="hero-banner">
+    <h1>Get In Touch</h1>
+    <p>We'd Love to Hear From You</p>
+  </div>
+
+  <!-- CONTACT CONTAINER -->
+  <div class="contact-container">
+    <!-- LEFT: INFO -->
+    <div class="contact-info">
+      <!-- Phone -->
+      <div class="info-box">
+        <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
+        <div class="info-text">
+          <h4>Phone</h4>
+          <p><a href="tel:+919876543210">+91 98765 43210</a></p>
+        </div>
+      </div>
+
+      <!-- WhatsApp -->
+      <div class="info-box">
+        <div class="info-icon"><i class="fa-brands fa-whatsapp"></i></div>
+        <div class="info-text">
+          <h4>WhatsApp</h4>
+          <p><a href="https://wa.me/919876543210" target="_blank" rel="noopener">+91 98765 43210</a></p>
+        </div>
+      </div>
+
+      <!-- Email -->
+      <div class="info-box">
+        <div class="info-icon"><i class="fa-regular fa-envelope"></i></div>
+        <div class="info-text">
+          <h4>Email</h4>
+          <p><a href="mailto:info@glowandgrace.in">info@glowandgrace.in</a></p>
+        </div>
+      </div>
+
+      <!-- Address -->
+      <div class="info-box">
+        <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+        <div class="info-text">
+          <h4>Address</h4>
+          <p>123, Green Park, Sector 45<br>Noida, Uttar Pradesh - 201301</p>
+        </div>
+      </div>
+
+      <!-- Working Hours -->
+      <div class="info-box">
+        <div class="info-icon"><i class="fa-regular fa-clock"></i></div>
+        <div class="info-text">
+          <h4>Working Hours</h4>
+          <p>Mon - Sat : 10:00 AM - 8:00 PM<br>Sun : 10:00 AM - 6:00 PM</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: MAP & FORM -->
+    <div class="contact-right">
+      <div class="map-box">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d112174.9667793478!2d77.30138946115998!3d28.535516086780784!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce5a43173357b%3A0x37ffce30c87cc03f!2sNoida%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin" loading="lazy"></iframe>
+      </div>
+
+      <div class="form-box">
+        <h3>Send Us a Message</h3>
+        <form>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Name" required>
+          </div>
+          <div class="form-group">
+            <input type="email" class="form-control" placeholder="Email" required>
+          </div>
+          <div class="form-group">
+            <textarea class="form-control" placeholder="Message" required></textarea>
+          </div>
+          <button type="submit" class="btn-submit">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="site.js"></script>
+</body>
+</html>

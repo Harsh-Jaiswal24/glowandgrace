@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reviews & Testimonials - Glow & Grace</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="site.css">
+
+  <style>
+    :root {
+      --primary: #c23b65;
+      --primary-dark: #9e2a4f;
+      --primary-light: #fdedf2;
+      --star-color: #f5a623;
+      --text-dark: #222222;
+      --text-muted: #666666;
+      --border-color: #f1dde3;
+      --white: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--text-dark);
+      background-color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    /* ================= 1. NAVBAR ================= */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 5%;
+      background: var(--white);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      width: 38px;
+      height: 38px;
+      color: var(--primary);
+    }
+
+    .logo-text h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: #222;
+      line-height: 1;
+    }
+
+    .logo-text span {
+      font-size: 8px;
+      letter-spacing: 2.5px;
+      font-weight: 600;
+      color: #555;
+      display: block;
+      margin-top: 3px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      gap: 24px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #444;
+      font-size: 13.5px;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links a.active {
+      color: var(--primary);
+      font-weight: 600;
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 4px;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .btn-header {
+      background-color: var(--primary);
+      color: var(--white);
+      border: none;
+      padding: 9px 20px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      cursor: pointer;
+    }
+
+    /* ================= 2. HERO BANNER ================= */
+    .hero-banner {
+      background: linear-gradient(90deg, rgba(38, 17, 24, 0.82) 0%, rgba(55, 23, 34, 0.7) 50%, rgba(38, 17, 24, 0.4) 100%),
+                  url('https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=1200&auto=format&fit=crop') center/cover;
+      padding: 55px 5%;
+      color: #ffffff;
+    }
+
+    .hero-banner h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 40px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .hero-banner p {
+      font-size: 14px;
+      color: #f7dbe4;
+      letter-spacing: 0.5px;
+    }
+
+    /* ================= 3. REVIEWS GRID ================= */
+    .reviews-section {
+      padding: 50px 5% 60px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 26px;
+      margin-bottom: 40px;
+    }
+
+    /* Review Card */
+    .review-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .review-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 24px rgba(194, 59, 101, 0.08);
+    }
+
+    .client-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 14px;
+    }
+
+    .client-avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #f6d1dd;
+    }
+
+    .client-meta h4 {
+      font-size: 15px;
+      font-weight: 600;
+      color: #222;
+      line-height: 1.2;
+    }
+
+    .stars {
+      color: var(--star-color);
+      font-size: 13px;
+      margin-top: 3px;
+      display: flex;
+      gap: 3px;
+    }
+
+    .review-text {
+      font-size: 12.5px;
+      color: #555;
+      line-height: 1.65;
+      font-style: italic;
+    }
+
+    /* Google Rating Card */
+    .google-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 24px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+      transition: transform 0.3s;
+    }
+
+    .google-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .google-card h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #222;
+      margin-bottom: 10px;
+    }
+
+    .google-logo {
+      font-family: 'Poppins', sans-serif;
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 6px;
+      display: inline-flex;
+    }
+
+    .google-logo span:nth-child(1) { color: #4285F4; } /* G */
+    .google-logo span:nth-child(2) { color: #EA4335; } /* o */
+    .google-logo span:nth-child(3) { color: #FBBC05; } /* o */
+    .google-logo span:nth-child(4) { color: #4285F4; } /* g */
+    .google-logo span:nth-child(5) { color: #34A853; } /* l */
+    .google-logo span:nth-child(6) { color: #EA4335; } /* e */
+
+    .google-card .stars {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .google-link {
+      font-size: 12px;
+      color: #666;
+      text-decoration: underline;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .google-link:hover {
+      color: var(--primary);
+    }
+
+    /* Centered Bottom Button */
+    .btn-center-wrapper {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .btn-view-more {
+      background-color: var(--primary);
+      color: var(--white);
+      border: none;
+      padding: 11px 32px;
+      border-radius: 6px;
+      font-size: 13.5px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      box-shadow: 0 4px 14px rgba(194, 59, 101, 0.25);
+    }
+
+    .btn-view-more:hover {
+      background-color: var(--primary-dark);
+    }
+
+    /* ================= RESPONSIVE ================= */
+    @media (max-width: 850px) {
+      .nav-links { display: none; }
+      .reviews-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. NAVBAR -->
+  <header class="navbar">
+    <a href="index.html" class="logo">
+      <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+        <path d="M12 3c-2 4-5 6-9 7 3 2 6 2 9 7 3-5 6-5 9-7-4-1-7-3-9-7z"/>
+        <path d="M12 10c-1.5 2-3 3-6 3.5 2 1.5 4 1.5 6 4.5 2-3 4-3 6-4.5-3-.5-4.5-1.5-6-3.5z"/>
+      </svg>
+      <div class="logo-text">
+        <h1>Glow & Grace</h1>
+        <span>BEAUTY PARLOUR</span>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="service.html">Services</a></li>
+      <li><a href="bridal.html">Bridal</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="offer.html">Offers</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="review.html" class="active">Reviews</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <button class="btn-header">
+      <i class="fa-regular fa-calendar-check"></i> Book Appointment
+    </button>
+  </header>
+
+  <!-- 2. HERO BANNER -->
+  <section class="hero-banner">
+    <h1>Happy Clients</h1>
+    <p>Real Stories, Real Smiles</p>
+  </section>
+
+  <!-- 3. REVIEWS & GOOGLE CARD SECTION -->
+  <section class="reviews-section">
+    <div class="reviews-grid">
+
+      <!-- Review 1: Priya Sharma -->
+      <div class="review-card">
+        <div class="client-header">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop" class="client-avatar" alt="Priya Sharma">
+          <div class="client-meta">
+            <h4>Priya Sharma</h4>
+            <div class="stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+          </div>
+        </div>
+        <p class="review-text">
+          "Amazing experience! The staff is so polite and professional. I loved my makeup and the ambience is so relaxing. Highly recommended!"
+        </p>
+      </div>
+
+      <!-- Review 2: Anjali Mehta -->
+      <div class="review-card">
+        <div class="client-header">
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&auto=format&fit=crop" class="client-avatar" alt="Anjali Mehta">
+          <div class="client-meta">
+            <h4>Anjali Mehta</h4>
+            <div class="stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+          </div>
+        </div>
+        <p class="review-text">
+          "Best salon in town! Their facial service is just amazing. I can see a visible difference in my skin. Thank you Glow & Grace!"
+        </p>
+      </div>
+
+      <!-- Review 3: Sneha Yadav -->
+      <div class="review-card">
+        <div class="client-header">
+          <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=200&auto=format&fit=crop" class="client-avatar" alt="Sneha Yadav">
+          <div class="client-meta">
+            <h4>Sneha Yadav</h4>
+            <div class="stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+          </div>
+        </div>
+        <p class="review-text">
+          "I hired them for my bridal makeup. It was perfect and made my special day more beautiful."
+        </p>
+      </div>
+
+      <!-- Review 4: Rate Us on Google Box -->
+      <div class="google-card">
+        <h3>Rate Us on Google</h3>
+        <div class="google-logo">
+          <span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span>
+        </div>
+        <div class="stars">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </div>
+        <a href="https://www.google.com/search?q=Glow+and+Grace+Beauty+Parlour+Noida" class="google-link" target="_blank" rel="noopener">Click here to review</a>
+      </div>
+
+    </div>
+
+    <!-- Centered Action Button -->
+    <div class="btn-center-wrapper">
+      <button class="btn-view-more">View More Reviews</button>
+    </div>
+  </section>
+
+  <script src="site.js"></script>
+</body>
+</html>

@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Glow & Grace Beauty Parlour</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="site.css">
+
+  <style>
+    :root {
+      --primary: #c23b65;
+      --primary-dark: #9e2a4f;
+      --primary-light: #fdedf2;
+      --primary-border: #f5d4df;
+      --text-main: #222222;
+      --text-muted: #666666;
+      --bg-cream: #fffafb;
+      --white: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--text-main);
+      background-color: #fdfafb;
+      overflow-x: hidden;
+    }
+
+    /* ================= 1. HEADER / NAVBAR ================= */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 5%;
+      background: var(--white);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      width: 42px;
+      height: 42px;
+      color: var(--primary);
+    }
+
+    .logo-text h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 25px;
+      font-weight: 700;
+      color: #222;
+      line-height: 1;
+    }
+
+    .logo-text span {
+      font-size: 8.5px;
+      letter-spacing: 3px;
+      font-weight: 600;
+      color: #555;
+      display: block;
+      margin-top: 3px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      gap: 26px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #444;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.3s;
+      position: relative;
+    }
+
+    .nav-links a.active {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .nav-links a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: var(--primary);
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .btn-header {
+      background-color: var(--primary);
+      color: var(--white);
+      border: none;
+      padding: 10px 22px;
+      border-radius: 6px;
+      font-size: 13.5px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn-header:hover {
+      background-color: var(--primary-dark);
+    }
+
+    /* ================= 2. HERO / ABOUT INTRO ================= */
+    .about-hero {
+      position: relative;
+      background: linear-gradient(90deg, #fdf8f9 45%, rgba(253, 248, 249, 0.6) 70%, rgba(253, 248, 249, 0) 100%),
+                  url('https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?q=80&w=1600&auto=format&fit=crop') right center/contain no-repeat;
+      min-height: 480px;
+      padding: 40px 5% 50px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #f6e6ec;
+    }
+
+    .hero-content {
+      max-width: 530px;
+      z-index: 2;
+    }
+
+    .sub-tag {
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 42px;
+      line-height: 1.25;
+      font-weight: 700;
+      color: #1f1f1f;
+      margin-bottom: 18px;
+    }
+
+    .hero-title span {
+      font-style: italic;
+      color: var(--primary);
+      font-weight: 600;
+      display: block;
+    }
+
+    .hero-desc {
+      color: var(--text-muted);
+      font-size: 13.5px;
+      line-height: 1.8;
+      margin-bottom: 30px;
+    }
+
+    .script-quote-left {
+      font-family: 'Caveat', cursive;
+      font-size: 30px;
+      line-height: 1.1;
+      color: var(--primary);
+      font-weight: 700;
+      transform: rotate(-4deg);
+      display: inline-block;
+    }
+
+    .hero-quote-right {
+      position: absolute;
+      right: 6%;
+      top: 25%;
+      text-align: right;
+      color: #3d232c;
+      z-index: 3;
+    }
+
+    .hero-quote-right h3 {
+      font-family: 'Caveat', cursive;
+      font-size: 32px;
+      line-height: 1.2;
+      font-weight: 700;
+    }
+
+    /* ================= 3. STORY & WHY CHOOSE US ================= */
+    .story-why-section {
+      padding: 50px 5%;
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      gap: 40px;
+      align-items: flex-start;
+    }
+
+    /* Left Story Container */
+    .story-container {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .story-text {
+      flex: 1;
+    }
+
+    .story-tag {
+      color: var(--primary);
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .story-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      color: #1f1f1f;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .story-title span {
+      font-style: italic;
+      color: var(--primary);
+    }
+
+    .story-desc {
+      color: var(--text-muted);
+      font-size: 13px;
+      line-height: 1.75;
+      margin-bottom: 14px;
+    }
+
+    .btn-pill {
+      background-color: var(--primary);
+      color: var(--white);
+      border: none;
+      padding: 12px 26px;
+      border-radius: 50px;
+      font-size: 13px;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      margin-top: 10px;
+      text-decoration: none;
+      box-shadow: 0 4px 14px rgba(194, 59, 101, 0.25);
+    }
+
+    /* Polaroid Photo Card */
+    .polaroid-wrapper {
+      position: relative;
+      flex-shrink: 0;
+      width: 210px;
+    }
+
+    .polaroid-card {
+      background: #ffffff;
+      padding: 10px 10px 18px 10px;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+      border-radius: 4px;
+      transform: rotate(3deg);
+      border: 1px solid #ede1e5;
+      text-align: center;
+    }
+
+    .polaroid-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 3px;
+    }
+
+    .polaroid-note {
+      font-family: 'Caveat', cursive;
+      font-size: 17px;
+      color: #444;
+      margin-top: 10px;
+      display: block;
+    }
+
+    /* Right: Why Choose Us Box */
+    .why-choose-card {
+      background: #ffffff;
+      border: 1px solid #f2e3e7;
+      border-radius: 14px;
+      padding: 35px 30px;
+      box-shadow: 0 5px 25px rgba(224, 114, 149, 0.04);
+    }
+
+    .why-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: #1f1f1f;
+      margin-bottom: 4px;
+    }
+
+    .why-subtitle {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 25px;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px 16px;
+    }
+
+    .why-item {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .why-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--primary-light);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      margin-bottom: 12px;
+      border: 1px solid var(--primary-border);
+    }
+
+    .why-item h4 {
+      font-size: 13px;
+      font-weight: 600;
+      color: #222;
+      margin-bottom: 6px;
+    }
+
+    .why-item p {
+      font-size: 11px;
+      color: #777;
+      line-height: 1.5;
+    }
+
+    /* ================= 4. OUR TEAM & STATS ================= */
+    .team-stats-section {
+      padding: 20px 5% 60px;
+      display: grid;
+      grid-template-columns: 1.25fr 1fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .team-left-wrap {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .team-header {
+      max-width: 170px;
+      flex-shrink: 0;
+    }
+
+    .team-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: #1f1f1f;
+      margin-bottom: 8px;
+    }
+
+    .team-header p {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      flex-grow: 1;
+    }
+
+    .team-card {
+      background: #ffffff;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid #f1dde3;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+      transition: transform 0.3s;
+    }
+
+    .team-card:hover {
+      transform: translateY(-3px);
+    }
+
+    .team-card img {
+      width: 100%;
+      height: 125px;
+      object-fit: cover;
+    }
+
+    .team-info {
+      padding: 10px 6px 12px;
+    }
+
+    .team-info h5 {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: #222;
+      margin-bottom: 2px;
+    }
+
+    .team-info span {
+      font-size: 10px;
+      color: #777;
+    }
+
+    /* Right Stats Banner */
+    .stats-card-box {
+      background: linear-gradient(135deg, #fcedf1 0%, #fae6ec 100%);
+      border-radius: 16px;
+      padding: 35px 25px 25px;
+      border: 1px solid #f7d7e1;
+      position: relative;
+    }
+
+    .stats-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 25px;
+    }
+
+    .stat-single {
+      text-align: center;
+      flex: 1;
+      position: relative;
+    }
+
+    .stat-single:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 15%;
+      height: 70%;
+      width: 1px;
+      background: #eec9d4;
+    }
+
+    .stat-single i {
+      font-size: 20px;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .stat-single h3 {
+      font-size: 19px;
+      font-weight: 700;
+      color: #222;
+      line-height: 1;
+    }
+
+    .stat-single p {
+      font-size: 10.5px;
+      color: #666;
+      margin-top: 4px;
+    }
+
+    .stats-card-box .deserve-quote {
+      text-align: right;
+      font-family: 'Caveat', cursive;
+      font-size: 24px;
+      color: var(--primary);
+      font-weight: 700;
+      transform: rotate(-2deg);
+      display: block;
+    }
+
+    /* ================= RESPONSIVE ================= */
+    @media (max-width: 1200px) {
+      .team-stats-section {
+        grid-template-columns: 1fr;
+      }
+      .story-why-section {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .about-hero {
+        background: #fdf8f9;
+        min-height: auto;
+      }
+      .hero-quote-right { display: none; }
+      .story-container {
+        flex-direction: column;
+      }
+      .polaroid-wrapper {
+        margin: 0 auto;
+      }
+      .why-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .team-left-wrap {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+        width: 100%;
+      }
+      .stats-row {
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+      .stat-single:not(:last-child)::after {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. HEADER / NAVBAR -->
+  <header class="navbar">
+    <a href="index.html" class="logo">
+      <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3c-2 4-5 6-9 7 3 2 6 2 9 7 3-5 6-5 9-7-4-1-7-3-9-7z"/>
+        <path d="M12 10c-1.5 2-3 3-6 3.5 2 1.5 4 1.5 6 4.5 2-3 4-3 6-4.5-3-.5-4.5-1.5-6-3.5z"/>
+      </svg>
+      <div class="logo-text">
+        <h1>Glow & Grace</h1>
+        <span>BEAUTY PARLOUR</span>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html" class="active">About Us</a></li>
+      <li><a href="service.html">Services<i class="fa-solid fa-chevron-down" style="font-size: 10px; margin-left: 3px;"></i></a></li>
+      <li><a href="bridal.html">Bridal</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="offer.html">Offers</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="review.html">Reviews</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <button class="btn-header">
+      <i class="fa-regular fa-calendar-check"></i> Book Appointment
+    </button>
+  </header>
+
+  <!-- 2. HERO / ABOUT INTRO SECTION -->
+  <section class="about-hero">
+    <div class="hero-content">
+      <div class="sub-tag">&mdash; ABOUT US &mdash;</div>
+      <h1 class="hero-title">
+        More Than Just a Parlour,
+        <span>It's a Place Where You Shine</span>
+      </h1>
+      <p class="hero-desc">
+        At Glow & Grace, we believe that beauty is not just about how you look, but how you feel. Our journey started with a simple dream &mdash; to create a space where every woman feels confident, cared for and beautiful. With a passion for beauty and wellness, we bring you a premium range of services, delivered with love, expertise and personalized care.
+      </p>
+
+      <div class="script-quote-left">
+        Your Beauty<br>Our Passion ♡
+      </div>
+    </div>
+
+    <!-- Right Side Floating Aesthetic Text -->
+    <div class="hero-quote-right">
+      <h3>Good<br>Skin<br>Happy<br>You<br>♡</h3>
+    </div>
+  </section>
+
+  <!-- 3. OUR STORY & WHY CHOOSE US -->
+  <section class="story-why-section">
+    
+    <!-- Left: Story + Polaroid -->
+    <div class="story-container">
+      <div class="story-text">
+        <span class="story-tag">OUR STORY</span>
+        <h2 class="story-title">The Journey of <span>Glow & Grace</span></h2>
+        <p class="story-desc">
+          Glow & Grace was founded with a vision to redefine beauty care by combining modern techniques with traditional care. What started as a small dream has today grown into a trusted beauty destination for women of all ages. Our founder, with years of experience in the beauty and wellness industry, wanted to create a space where every client feels special, relaxed and truly beautiful.
+        </p>
+        <p class="story-desc">
+          Today, we are proud to be a team of skilled professionals dedicated to enhancing your natural beauty and boosting your confidence.
+        </p>
+        
+        <a href="contact.html" class="btn-pill">
+          <i class="fa-regular fa-calendar-check"></i> Book Your Appointment <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <!-- Polaroid Photo -->
+      <div class="polaroid-wrapper">
+        <div class="polaroid-card">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600&auto=format&fit=crop" alt="Model Portrait">
+          <span class="polaroid-note">Confidence looks good on you ♡</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Why Choose Us Box -->
+    <div class="why-choose-card">
+      <h2 class="why-title">Why Choose Us?</h2>
+      <p class="why-subtitle">We go beyond beauty, we create experiences.</p>
+
+      <div class="why-grid">
+        <!-- 1 -->
+        <div class="why-item">
+          <div class="why-icon"><i class="fa-solid fa-spa"></i></div>
+          <h4>Expert Professionals</h4>
+          <p>Skilled & certified beauticians with years of experience.</p>
+        </div>
+
+        <!-- 2 -->
+        <div class="why-item">
+          <div class="why-icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <h4>Hygienic & Safe</h4>
+          <p>Clean, sanitized and safe environment.</p>
+        </div>
+
+        <!-- 3 -->
+        <div class="why-item">
+          <div class="why-icon"><i class="fa-solid fa-leaf"></i></div>
+          <h4>Premium Products</h4>
+          <p>Use of high-quality & skin-friendly products.</p>
+        </div>
+
+        <!-- 4 -->
+        <div class="why-item">
+          <div class="why-icon"><i class="fa-regular fa-heart"></i></div>
+          <h4>Personalized Care</h4>
+          <p>Customized services as per your needs.</p>
+        </div>
+
+        <!-- 5 -->
+        <div class="why-item">
+          <div class="why-icon"><i class="fa-regular fa-star"></i></div>
+          <h4>Modern & Comfortable</h4>
+          <p>Relaxing ambiance with modern facilities.</p>
+        </div>
+
+        <!-- 6 -->
+        <div class="why-item">
+          <div class="why-icon"><i class="fa-regular fa-face-smile"></i></div>
+          <h4>Client Satisfaction</h4>
+          <p>Your happiness is our priority.</p>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- 4. OUR TEAM & STATS SECTION -->
+  <section class="team-stats-section">
+
+    <!-- Team Block -->
+    <div class="team-left-wrap">
+      <div class="team-header">
+        <h2>Our Team</h2>
+        <p>A team of passionate beauty experts, ready to make you look and feel your best.</p>
+        <a href="team.html" class="btn-pill">
+          <i class="fa-regular fa-calendar-check"></i> Meet Our Team <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <div class="team-grid">
+        <!-- Team Member 1 -->
+        <div class="team-card">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400&auto=format&fit=crop" alt="Anjali Sharma">
+          <div class="team-info">
+            <h5>Anjali Sharma</h5>
+            <span>Hair Specialist</span>
+          </div>
+        </div>
+
+        <!-- Team Member 2 -->
+        <div class="team-card">
+          <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=400&auto=format&fit=crop" alt="Neha Verma">
+          <div class="team-info">
+            <h5>Neha Verma</h5>
+            <span>Skin & Facial Expert</span>
+          </div>
+        </div>
+
+        <!-- Team Member 3 -->
+        <div class="team-card">
+          <img src="https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?q=80&w=400&auto=format&fit=crop" alt="Riya Singh">
+          <div class="team-info">
+            <h5>Riya Singh</h5>
+            <span>Makeup Artist</span>
+          </div>
+        </div>
+
+        <!-- Team Member 4 -->
+        <div class="team-card">
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&auto=format&fit=crop" alt="Pooja Mehta">
+          <div class="team-info">
+            <h5>Pooja Mehta</h5>
+            <span>Nail & Spa Expert</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats Banner -->
+    <div class="stats-card-box">
+      <div class="stats-row">
+        <!-- Stat 1 -->
+        <div class="stat-single">
+          <i class="fa-solid fa-users"></i>
+          <h3>10K+</h3>
+          <p>Happy Clients</p>
+        </div>
+
+        <!-- Stat 2 -->
+        <div class="stat-single">
+          <i class="fa-regular fa-star"></i>
+          <h3>4.9/5</h3>
+          <p>Average Rating</p>
+        </div>
+
+        <!-- Stat 3 -->
+        <div class="stat-single">
+          <i class="fa-regular fa-calendar-days"></i>
+          <h3>5+</h3>
+          <p>Years of Experience</p>
+        </div>
+
+        <!-- Stat 4 -->
+        <div class="stat-single">
+          <i class="fa-solid fa-leaf"></i>
+          <h3>100%</h3>
+          <p>Client Satisfaction</p>
+        </div>
+      </div>
+
+      <span class="deserve-quote">Because You Deserve the Best ♡</span>
+    </div>
+
+  </section>
+
+  <script src="site.js"></script>
+
+</body>
+</html>

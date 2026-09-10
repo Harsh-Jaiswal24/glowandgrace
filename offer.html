@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Offers & Packages - Glow & Grace</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="site.css">
+
+  <style>
+    :root {
+      --primary: #c23b65;
+      --primary-dark: #9e2a4f;
+      --primary-light: #fcedf1;
+      --text-dark: #222222;
+      --text-muted: #666666;
+      --white: #ffffff;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Poppins', sans-serif; color: var(--text-dark); background: #ffffff; }
+
+    /* Navbar */
+    .navbar {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 16px 5%; background: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    }
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo-icon { width: 38px; height: 38px; color: var(--primary); }
+    .logo-text h1 { font-family: 'Playfair Display', serif; font-size: 24px; color: #222; line-height: 1; }
+    .logo-text span { font-size: 8px; letter-spacing: 2.5px; font-weight: 600; color: #555; display: block; }
+    .nav-links { display: flex; list-style: none; gap: 24px; }
+    .nav-links a { text-decoration: none; color: #444; font-size: 13.5px; font-weight: 500; }
+    .nav-links a.active { color: var(--primary); font-weight: 600; border-bottom: 2px solid var(--primary); padding-bottom: 4px; }
+    .btn-header {
+      background: var(--primary); color: #fff; border: none; padding: 9px 20px;
+      border-radius: 6px; font-size: 13px; cursor: pointer; display: flex; align-items: center; gap: 7px;
+    }
+
+    /* Hero */
+    .hero-banner {
+      background: linear-gradient(rgba(45, 20, 27, 0.65), rgba(45, 20, 27, 0.65)),
+                  url('https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=1200&auto=format&fit=crop') center/cover;
+      padding: 50px 5%; text-align: center; color: #fff;
+    }
+    .hero-banner h1 { font-family: 'Playfair Display', serif; font-size: 38px; margin-bottom: 5px; }
+    .hero-banner p { font-size: 14px; opacity: 0.9; }
+
+    /* Big Offers Cards */
+    .offers-section { padding: 40px 5%; }
+    .big-offers-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 45px; }
+    
+    .promo-card {
+      border-radius: 14px; padding: 30px; display: flex; justify-content: space-between;
+      align-items: center; position: relative; overflow: hidden; color: #fff;
+    }
+    .promo-card.pink { background: linear-gradient(135deg, #d84576 0%, #b82c58 100%); }
+    .promo-card.peach { background: linear-gradient(135deg, #df7d86 0%, #c45b65 100%); }
+    
+    .promo-info h2 { font-size: 32px; font-weight: 700; line-height: 1.1; margin-bottom: 6px; }
+    .promo-info h4 { font-size: 18px; font-weight: 500; margin-bottom: 4px; }
+    .promo-info p { font-size: 12px; opacity: 0.85; margin-bottom: 20px; }
+    .btn-promo {
+      background: #fff; color: var(--primary); border: none; padding: 9px 24px;
+      border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer;
+    }
+    .promo-img {
+      width: 140px; height: 140px; border-radius: 50%; object-fit: cover;
+      border: 4px solid rgba(255,255,255,0.35); flex-shrink: 0;
+    }
+
+    /* Combo Packages */
+    .section-title { font-family: 'Playfair Display', serif; font-size: 26px; margin-bottom: 25px; }
+    .combo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 45px; }
+    .combo-card {
+      border: 1px solid #f0d5de; border-radius: 12px; padding: 26px 20px;
+      text-align: center; background: #fff; transition: transform 0.3s;
+    }
+    .combo-card:hover { transform: translateY(-4px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+    .combo-card h3 { font-size: 18px; margin-bottom: 12px; }
+    .combo-price { font-size: 26px; font-weight: 700; color: var(--primary); margin-bottom: 10px; }
+    .save-badge {
+      display: inline-block; background: #ffe6ee; color: var(--primary);
+      font-size: 11px; font-weight: 600; padding: 3px 12px; border-radius: 20px; margin-bottom: 20px;
+    }
+    .btn-combo {
+      width: 100%; background: var(--primary); color: #fff; border: none;
+      padding: 10px; border-radius: 6px; font-size: 13px; font-weight: 500; cursor: pointer;
+    }
+
+    /* Festival Strip */
+    .festival-banner {
+      background: #fdf0f4; border: 1px dashed #f2b3c4; border-radius: 12px;
+      padding: 22px 35px; display: flex; justify-content: space-between; align-items: center;
+    }
+    .fest-left { display: flex; align-items: center; gap: 18px; }
+    .fest-icon { font-size: 32px; color: var(--primary); }
+    .fest-text h4 { font-size: 18px; font-weight: 600; color: var(--primary); }
+    .fest-text p { font-size: 12px; color: #666; margin-top: 2px; }
+    .btn-fest {
+      background: var(--primary); color: #fff; border: none; padding: 10px 26px;
+      border-radius: 6px; font-size: 13px; font-weight: 500; cursor: pointer;
+    }
+
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .big-offers-grid, .combo-grid { grid-template-columns: 1fr; }
+      .festival-banner { flex-direction: column; text-align: center; gap: 15px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <a href="index.html" class="logo">
+      <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3c-2 4-5 6-9 7 3 2 6 2 9 7 3-5 6-5 9-7-4-1-7-3-9-7z"/><path d="M12 10c-1.5 2-3 3-6 3.5 2 1.5 4 1.5 6 4.5 2-3 4-3 6-4.5-3-.5-4.5-1.5-6-3.5z"/></svg>
+      <div class="logo-text"><h1>Glow & Grace</h1><span>BEAUTY PARLOUR</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="service.html">Services</a></li>
+      <li><a href="bridal.html">Bridal</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="offer.html" class="active">Offers</a></li>
+      <li><a href="team.html">Team</a></li><li><a href="review.html">Reviews</a></li><li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="btn-header"><i class="fa-regular fa-calendar-check"></i> Book Appointment</button>
+  </header>
+
+  <!-- HERO -->
+  <div class="hero-banner">
+    <h1>Latest Offers & Packages</h1>
+    <p>Because You Deserve More</p>
+  </div>
+
+  <section class="offers-section">
+    <!-- 2 BIG CARDS -->
+    <div class="big-offers-grid">
+      <div class="promo-card pink">
+        <div class="promo-info">
+          <h2>Flat 20% OFF</h2>
+          <h4>on All Facial Services</h4>
+          <p>Valid till 30th Sept</p>
+          <button class="btn-promo">Book Now</button>
+        </div>
+        <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=400&auto=format&fit=crop" class="promo-img" alt="Facial Offer">
+      </div>
+
+      <div class="promo-card peach">
+        <div class="promo-info">
+          <h2>Bridal Package</h2>
+          <h4>Starting at ₹15,000</h4>
+          <p>Makeup + Hair + Draping</p>
+          <button class="btn-promo">Book Now</button>
+        </div>
+        <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=400&auto=format&fit=crop" class="promo-img" alt="Bridal Package">
+      </div>
+    </div>
+
+    <!-- COMBO PACKAGES -->
+    <h2 class="section-title">Combo Packages</h2>
+    <div class="combo-grid">
+      <div class="combo-card">
+        <h3>Hair + Facial</h3>
+        <div class="combo-price">₹2,500</div>
+        <span class="save-badge">Save 15%</span>
+        <button class="btn-combo">Book Now</button>
+      </div>
+      <div class="combo-card">
+        <h3>Manicure + Pedicure</h3>
+        <div class="combo-price">₹2,000</div>
+        <span class="save-badge">Save 20%</span>
+        <button class="btn-combo">Book Now</button>
+      </div>
+      <div class="combo-card">
+        <h3>Bridal Makeup + Hair</h3>
+        <div class="combo-price">₹12,000</div>
+        <span class="save-badge">Save 10%</span>
+        <button class="btn-combo">Book Now</button>
+      </div>
+    </div>
+
+    <!-- FESTIVAL BANNER -->
+    <div class="festival-banner">
+      <div class="fest-left">
+        <i class="fa-solid fa-gift fest-icon"></i>
+        <div class="fest-text">
+          <h4>Special Festival Offers</h4>
+          <p>Get up to 30% OFF on selected services</p>
+        </div>
+      </div>
+      <button class="btn-fest">Grab Now</button>
+    </div>
+  </section>
+
+  <script src="site.js"></script>
+</body>
+</html>

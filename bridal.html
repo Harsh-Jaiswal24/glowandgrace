@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery - Glow & Grace Beauty Parlour</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="site.css">
+
+  <style>
+    :root {
+      --primary: #c23b65;
+      --primary-dark: #9e2a4f;
+      --primary-light: #fdedf2;
+      --border-pink: #f1d3dd;
+      --text-dark: #1f1f1f;
+      --text-muted: #666666;
+      --bg-cream: #fffafb;
+      --white: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--text-dark);
+      background-color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    /* ================= 1. NAVBAR ================= */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 5%;
+      background: var(--white);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      width: 42px;
+      height: 42px;
+      color: var(--primary);
+    }
+
+    .logo-text h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 25px;
+      font-weight: 700;
+      color: #222;
+      line-height: 1;
+    }
+
+    .logo-text span {
+      font-size: 8.5px;
+      letter-spacing: 3px;
+      font-weight: 600;
+      color: #555;
+      display: block;
+      margin-top: 3px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      gap: 26px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #444;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.3s;
+      position: relative;
+    }
+
+    .nav-links a.active {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .nav-links a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: var(--primary);
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .btn-header {
+      background-color: var(--primary);
+      color: var(--white);
+      border: none;
+      padding: 10px 22px;
+      border-radius: 6px;
+      font-size: 13.5px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn-header:hover {
+      background-color: var(--primary-dark);
+    }
+
+    /* ================= 2. HERO / GALLERY HEADER ================= */
+    .gallery-hero {
+      position: relative;
+      background: linear-gradient(90deg, #fdf8f9 45%, rgba(253, 248, 249, 0.7) 65%, rgba(253, 248, 249, 0) 100%),
+                  url('https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=1600&auto=format&fit=crop') right center/contain no-repeat;
+      min-height: 380px;
+      padding: 50px 5% 40px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #f6e6ec;
+    }
+
+    .hero-content {
+      max-width: 520px;
+      z-index: 2;
+    }
+
+    .hero-tag {
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-tag::after {
+      content: '';
+      display: inline-block;
+      width: 25px;
+      height: 1.5px;
+      background: var(--primary);
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 46px;
+      line-height: 1.15;
+      font-weight: 700;
+      color: #1f1f1f;
+      margin-bottom: 4px;
+    }
+
+    .hero-title span {
+      font-style: italic;
+      color: var(--primary);
+      display: block;
+      font-weight: 600;
+    }
+
+    .hero-desc {
+      color: var(--text-muted);
+      font-size: 13.5px;
+      line-height: 1.7;
+      margin-top: 14px;
+    }
+
+    /* Floating Handwritten Script on Right */
+    .hero-quote-right {
+      position: absolute;
+      right: 8%;
+      top: 25%;
+      text-align: right;
+      color: #3d232c;
+      z-index: 3;
+    }
+
+    .hero-quote-right h3 {
+      font-family: 'Caveat', cursive;
+      font-size: 34px;
+      line-height: 1.15;
+      font-weight: 700;
+    }
+
+    /* ================= 3. FILTER BUTTONS ================= */
+    .filter-wrapper {
+      padding: 30px 5% 15px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .filter-btn {
+      background: #ffffff;
+      border: 1px solid #f0ccd7;
+      color: #444;
+      padding: 8px 18px;
+      border-radius: 8px;
+      font-size: 12.5px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      white-space: nowrap;
+    }
+
+    .filter-btn i {
+      color: var(--primary);
+      font-size: 13px;
+    }
+
+    .filter-btn.active {
+      background: var(--primary);
+      color: var(--white);
+      border-color: var(--primary);
+      font-weight: 600;
+    }
+
+    .filter-btn.active i {
+      color: var(--white);
+    }
+
+    .filter-btn:hover:not(.active) {
+      background: #fff4f7;
+      border-color: var(--primary);
+    }
+
+    /* ================= 4. GALLERY GRID (6 x 2) ================= */
+    .gallery-container {
+      padding: 15px 5% 40px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 14px;
+    }
+
+    .gallery-card {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      aspect-ratio: 1 / 1.08;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .gallery-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 22px rgba(194, 59, 101, 0.15);
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .gallery-card:hover img {
+      transform: scale(1.05);
+    }
+
+    /* Bottom Overlay */
+    .card-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 26px 12px 12px;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.88) 0%, rgba(0, 0, 0, 0.45) 60%, transparent 100%);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--white);
+      z-index: 2;
+    }
+
+    .card-info {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card-icon {
+      font-size: 14px;
+      color: #ffdce6;
+    }
+
+    .card-texts h4 {
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 1.2;
+      color: #ffffff;
+    }
+
+    .card-texts span {
+      font-size: 9.5px;
+      color: #e5e5e5;
+      display: block;
+      margin-top: 1px;
+    }
+
+    .card-arrow {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 8px;
+      color: #ffffff;
+      flex-shrink: 0;
+      transition: background 0.3s;
+    }
+
+    .gallery-card:hover .card-arrow {
+      background: var(--primary);
+    }
+
+    /* ================= 5. BOTTOM CTA BANNER ================= */
+    .bottom-cta-banner {
+      margin: 10px 5% 45px;
+      background: linear-gradient(135deg, #fcedf1 0%, #fae6ec 100%);
+      border-radius: 16px;
+      padding: 24px 35px;
+      border: 1px solid #f7d7e1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .cta-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .cta-camera-icon {
+      font-size: 32px;
+      color: var(--primary);
+    }
+
+    .cta-left-text {
+      font-family: 'Caveat', cursive;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1.1;
+      transform: rotate(-3deg);
+    }
+
+    .cta-badges {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .cta-badge-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+    }
+
+    .cta-badge-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: -15px;
+      top: 10%;
+      height: 80%;
+      width: 1px;
+      background: #eac5d0;
+    }
+
+    .cta-badge-item i {
+      font-size: 18px;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+
+    .cta-badge-item span {
+      font-size: 11px;
+      font-weight: 600;
+      color: #333;
+      line-height: 1.3;
+      max-width: 90px;
+    }
+
+    .btn-banner-book {
+      background-color: var(--primary);
+      color: var(--white);
+      border: none;
+      padding: 12px 26px;
+      border-radius: 50px;
+      font-size: 13.5px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+      white-space: nowrap;
+    }
+
+    .btn-banner-book:hover {
+      background-color: var(--primary-dark);
+    }
+
+    /* ================= RESPONSIVE DESIGN ================= */
+    @media (max-width: 1200px) {
+      .gallery-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+      .cta-badges {
+        gap: 15px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .gallery-hero {
+        background: #fdf8f9;
+        min-height: auto;
+      }
+      .hero-quote-right { display: none; }
+      .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .bottom-cta-banner {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+      }
+      .cta-badges {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+      }
+      .cta-badge-item:not(:last-child)::after {
+        display: none;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. NAVBAR -->
+  <header class="navbar">
+    <a href="index.html" class="logo">
+      <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3c-2 4-5 6-9 7 3 2 6 2 9 7 3-5 6-5 9-7-4-1-7-3-9-7z"/>
+        <path d="M12 10c-1.5 2-3 3-6 3.5 2 1.5 4 1.5 6 4.5 2-3 4-3 6-4.5-3-.5-4.5-1.5-6-3.5z"/>
+      </svg>
+      <div class="logo-text">
+        <h1>Glow & Grace</h1>
+        <span>BEAUTY PARLOUR</span>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="service.html">Services<i class="fa-solid fa-chevron-down" style="font-size: 10px; margin-left: 3px;"></i></a></li>
+      <li><a href="bridal.html" class="active">Bridal</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="offer.html">Offers</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="review.html">Reviews</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <button class="btn-header">
+      <i class="fa-regular fa-calendar-check"></i> Book Appointment
+    </button>
+  </header>
+
+  <!-- 2. GALLERY HERO SECTION -->
+  <section class="gallery-hero">
+    <div class="hero-content">
+      <div class="hero-tag">OUR GALLERY</div>
+      <h1 class="hero-title">
+        Beauty in Every Frame
+        <span>Explore Our Work</span>
+      </h1>
+      <p class="hero-desc">
+        From stunning makeovers to elegant bridal looks, our gallery showcases the passion, skill and creativity behind every service we offer.
+      </p>
+    </div>
+
+    <!-- Cursive quote on right -->
+    <div class="hero-quote-right">
+      <h3>Real People<br>Real Makeovers<br>Real Stories<br>♡</h3>
+    </div>
+  </section>
+
+  <!-- 3. FILTER TABS -->
+  <div class="filter-wrapper">
+    <button class="filter-btn active">All</button>
+    <button class="filter-btn"><i class="fa-solid fa-scissors"></i> Hair Styles</button>
+    <button class="filter-btn"><i class="fa-solid fa-wand-magic-sparkles"></i> Makeup</button>
+    <button class="filter-btn"><i class="fa-solid fa-ring"></i> Bridal</button>
+    <button class="filter-btn"><i class="fa-regular fa-face-smile"></i> Facials</button>
+    <button class="filter-btn"><i class="fa-regular fa-hand"></i> Nails</button>
+    <button class="filter-btn"><i class="fa-solid fa-feather"></i> Waxing</button>
+    <button class="filter-btn"><i class="fa-solid fa-user-check"></i> Before & After</button>
+    <button class="filter-btn"><i class="fa-solid fa-ellipsis"></i> Others</button>
+  </div>
+
+  <!-- 4. GALLERY GRID (12 Cards) -->
+  <section class="gallery-container">
+    <div class="gallery-grid">
+
+      <!-- Card 1 -->
+      <div class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=500&auto=format&fit=crop" alt="Hair Styles">
+        <div class="card-overlay">
+          <div class="card-info">
+            <i class="fa-solid fa-scissors card-icon"></i>
+            <div class="card-texts">
+              <h4>Hair Styles</h4>
+              <span>(24 Photos)</span>
+            </div>
+          </div>
+          <div class="card-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=500&auto=format&fit=crop" alt="Makeup">
+        <div class="card-overlay">
+          <div class="card-info">
+            <i class="fa-solid fa-wand-magic-sparkles card-icon"></i>
+            <div class="card-texts">
+              <h4>Makeup</h4>
+              <span>(32 Photos)</span>
+            </div>
+          </div>
+          <div class="card-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=500&auto=format&fit=crop" alt="Bridal">
+        <div class="card-overlay">
+          <div class="card-info">
+            <i class="fa-solid fa-ring card-icon"></i>
+            <div class="card-texts">
+              <h4>Bridal</h4>
+              <span>(28 Photos)</span>
+            </div>
+          </div>
+          <div class="card-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=500&auto=format&fit=crop" alt="Facials">
+        <div class="card-overlay">
+          <div class="card-info">
+            <i class="fa-regular fa-face-smile card-icon"></i>
+            <div class="card-texts">
+              <h4>Facials</h4>
+              <span>(16 Photos)</span>
+            </div>
+          </div>
+          <div class="card-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?q=80&w=500&auto=format&fit=crop" alt="Nails">
+        <div class="card-overlay">
+          <div class="card-info">
+            <i class="fa-regular fa-hand card-icon"></i>
+            <div class="card-texts">
+              <h4>Nails</h4>
+              <span>(12 Photos)</span>
+            </div>
+          </div>
+          <div class="card-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1560750588-73207b1ef5b8?q=80&w=500&auto=format&fit=crop" alt="Waxing">
+        <div class="card-overlay">
+          <div class="card-info">
+            <i class="fa-solid fa-feather card-icon"></i>
+            <div class="card-texts">
+              <h4>Waxing</h4>
+              <span>(10 Photos)</span>
+            </div>
+          </div>
+          <div class="card-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+        </div>
+      </div>
+
+      <!-- Card 7 -->
+      <div class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=500&auto=format&fit=crop" alt="Before & After">
+        <div class="card-overlay">
+          <div class="card-info">
+            <i class="fa-solid fa-user-check card-icon"></i>
+            <div class="card-texts">
+              <h4>Before & After</h4>
+              <span>(18 Photos)</span>
+            </div>
+          </div>
+          <div class="card-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+        </div>
+      </div>
+
+      <!-- Card 8 -->
+      <div class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1608248597359-009d17d05779?q=80&w=500&auto=format&fit=crop" alt="Others">
+        <div class="card-overlay">
+          <div class="card-info">
+            <i class="fa-solid fa-ellipsis card-icon"></i>
+            <div class="card-texts">
+              <h4>Others</h4>
+              <span>(14 Photos)</span>
+            </div>
+          </div>
+          <div class="card-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+        </div>
+      </div>
+
+      <!-- Card 9 -->
+      <div class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?q=80&w=500&auto=format&fit=crop" alt="Gallery Highlights">
+        <div class="card-overlay">
+          <div class="card-info">
+            <i class="fa-regular fa-images card-icon"></i>
+            <div class="card-texts">
+              <h4>Gallery Highlights</h4>
+              <span>(46 Photos)</span>
+            </div>
+          </div>
+          <div class="card-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+        </div>
+      </div>
+
+      <!-- Card 10 -->
+      <div class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?q=80&w=500&auto=format&fit=crop" alt="Makeup Looks">
+        <div class="card-overlay">
+          <div class="card-info">
+            <i class="fa-solid fa-brush card-icon"></i>
+            <div class="card-texts">
+              <h4>Makeup Looks</h4>
+              <span>(22 Photos)</span>
+            </div>
+          </div>
+          <div class="card-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+        </div>
+      </div>
+
+      <!-- Card 11 -->
+      <div class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?q=80&w=500&auto=format&fit=crop" alt="Bridal Portfolio">
+        <div class="card-overlay">
+          <div class="card-info">
+            <i class="fa-solid fa-gem card-icon"></i>
+            <div class="card-texts">
+              <h4>Bridal Portfolio</h4>
+              <span>(20 Photos)</span>
+            </div>
+          </div>
+          <div class="card-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+        </div>
+      </div>
+
+      <!-- Card 12 -->
+      <div class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?q=80&w=500&auto=format&fit=crop" alt="Salon Ambience">
+        <div class="card-overlay">
+          <div class="card-info">
+            <i class="fa-solid fa-store card-icon"></i>
+            <div class="card-texts">
+              <h4>Salon Ambience</h4>
+              <span>(8 Photos)</span>
+            </div>
+          </div>
+          <div class="card-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 5. BOTTOM CTA BANNER -->
+  <section class="bottom-cta-banner">
+    <div class="cta-left">
+      <i class="fa-solid fa-camera-retro cta-camera-icon"></i>
+      <div class="cta-left-text">
+        Book Your<br>Beauty Session Today! ♡
+      </div>
+    </div>
+
+    <div class="cta-badges">
+      <div class="cta-badge-item">
+        <i class="fa-solid fa-user-tie"></i>
+        <span>Professional Beauticians</span>
+      </div>
+
+      <div class="cta-badge-item">
+        <i class="fa-solid fa-leaf"></i>
+        <span>Premium Products</span>
+      </div>
+
+      <div class="cta-badge-item">
+        <i class="fa-solid fa-shield-halved"></i>
+        <span>Hygienic & Safe Environment</span>
+      </div>
+
+      <div class="cta-badge-item">
+        <i class="fa-regular fa-heart"></i>
+        <span>Your Beauty Our Priority</span>
+      </div>
+    </div>
+
+    <button class="btn-banner-book">
+      <i class="fa-regular fa-calendar-check"></i> Book Appointment &rarr;
+    </button>
+  </section>
+
+  <script src="site.js"></script>
+
+</body>
+</html>

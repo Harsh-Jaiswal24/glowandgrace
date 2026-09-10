@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Services - Glow & Grace Beauty Parlour</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="site.css">
+
+  <style>
+    :root {
+      --primary: #c23b65;
+      --primary-dark: #9e2a4f;
+      --primary-light: #fdedf2;
+      --border-pink: #f1d3dd;
+      --text-dark: #1f1f1f;
+      --text-muted: #666666;
+      --bg-light: #fffafb;
+      --white: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--text-dark);
+      background-color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    /* ================= 1. NAVBAR ================= */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 5%;
+      background: var(--white);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      width: 42px;
+      height: 42px;
+      color: var(--primary);
+    }
+
+    .logo-text h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 25px;
+      font-weight: 700;
+      color: #222;
+      line-height: 1;
+    }
+
+    .logo-text span {
+      font-size: 8.5px;
+      letter-spacing: 3px;
+      font-weight: 600;
+      color: #555;
+      display: block;
+      margin-top: 3px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      gap: 26px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #444;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.3s;
+      position: relative;
+    }
+
+    .nav-links a.active {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .nav-links a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: var(--primary);
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .btn-header {
+      background-color: var(--primary);
+      color: var(--white);
+      border: none;
+      padding: 10px 22px;
+      border-radius: 6px;
+      font-size: 13.5px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn-header:hover {
+      background-color: var(--primary-dark);
+    }
+
+    /* ================= 2. SERVICES HERO ================= */
+    .services-hero {
+      position: relative;
+      background: linear-gradient(90deg, #fdf8f9 48%, rgba(253, 248, 249, 0.6) 70%, rgba(253, 248, 249, 0) 100%),
+                  url('https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=1600&auto=format&fit=crop') right center/contain no-repeat;
+      min-height: 400px;
+      padding: 40px 5% 45px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #f6e6ec;
+    }
+
+    .hero-content {
+      max-width: 530px;
+      z-index: 2;
+    }
+
+    .breadcrumb {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      color: var(--primary);
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 48px;
+      line-height: 1.15;
+      font-weight: 700;
+      color: #1f1f1f;
+      margin-bottom: 4px;
+    }
+
+    .hero-title span {
+      font-style: italic;
+      color: var(--primary);
+      display: block;
+      font-weight: 600;
+      font-size: 32px;
+      margin-top: 6px;
+    }
+
+    .hero-desc {
+      color: var(--text-muted);
+      font-size: 13.5px;
+      line-height: 1.7;
+      margin-top: 14px;
+      margin-bottom: 25px;
+    }
+
+    .hero-badges {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .hero-badge {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #ffffffda;
+      border: 1px solid #f2d8e1;
+      padding: 8px 16px;
+      border-radius: 8px;
+      backdrop-filter: blur(4px);
+    }
+
+    .badge-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--primary-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-size: 13px;
+    }
+
+    .badge-texts h5 {
+      font-size: 12px;
+      font-weight: 600;
+      color: #222;
+      line-height: 1.2;
+    }
+
+    .badge-texts span {
+      font-size: 10px;
+      color: #777;
+    }
+
+    /* ================= 3. SERVICES GRID SECTION ================= */
+    .services-grid-section {
+      padding: 55px 5% 45px;
+      background: #ffffff;
+      text-align: center;
+    }
+
+    .section-tag {
+      color: var(--primary);
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      display: inline-block;
+      position: relative;
+    }
+
+    .section-tag::before,
+    .section-tag::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      width: 30px;
+      height: 1px;
+      background-color: var(--primary);
+    }
+
+    .section-tag::before { right: 100%; margin-right: 10px; }
+    .section-tag::after { left: 100%; margin-left: 10px; }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 34px;
+      font-weight: 700;
+      color: #1f1f1f;
+      margin-bottom: 6px;
+    }
+
+    .section-sub {
+      color: var(--text-muted);
+      font-size: 13.5px;
+      margin-bottom: 35px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+      text-align: left;
+    }
+
+    .service-card {
+      background: #ffffff;
+      border: 1px solid #f2e3e7;
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(194, 59, 101, 0.09);
+    }
+
+    .card-img-wrap {
+      position: relative;
+      height: 170px;
+      width: 100%;
+    }
+
+    .card-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .card-floating-icon {
+      position: absolute;
+      bottom: -18px;
+      left: 16px;
+      width: 38px;
+      height: 38px;
+      background: var(--white);
+      border: 1px solid #f2bed0;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-size: 15px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .card-body {
+      padding: 26px 18px 18px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
+    }
+
+    .card-body h4 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #222;
+      margin-bottom: 8px;
+    }
+
+    .card-body p {
+      font-size: 12px;
+      color: #777;
+      line-height: 1.5;
+      margin-bottom: 18px;
+    }
+
+    .card-body .view-details {
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap 0.2s;
+    }
+
+    .card-body .view-details:hover {
+      gap: 9px;
+    }
+
+    /* ================= 4. WHY CHOOSE US SECTION ================= */
+    .why-section {
+      padding: 60px 5%;
+      background-color: #fff9fb;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .why-left-tag {
+      color: var(--primary);
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      display: inline-block;
+      position: relative;
+    }
+
+    .why-left-tag::before,
+    .why-left-tag::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      width: 25px;
+      height: 1px;
+      background-color: var(--primary);
+    }
+
+    .why-left-tag::before { right: 100%; margin-right: 8px; }
+    .why-left-tag::after { left: 100%; margin-left: 8px; }
+
+    .why-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 38px;
+      font-weight: 700;
+      color: #1f1f1f;
+      margin-bottom: 12px;
+    }
+
+    .why-desc {
+      color: var(--text-muted);
+      font-size: 13.5px;
+      line-height: 1.75;
+      margin-bottom: 30px;
+      max-width: 520px;
+    }
+
+    .why-features-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px 20px;
+      margin-bottom: 35px;
+    }
+
+    .why-feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .why-feature-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--primary-light);
+      border: 1px solid var(--border-pink);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    .why-feature-info h5 {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #222;
+      margin-bottom: 3px;
+    }
+
+    .why-feature-info p {
+      font-size: 11.5px;
+      color: #777;
+      line-height: 1.4;
+    }
+
+    .btn-pill-book {
+      background-color: var(--primary);
+      color: var(--white);
+      border: none;
+      padding: 12px 28px;
+      border-radius: 50px;
+      font-size: 13.5px;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 4px 14px rgba(194, 59, 101, 0.25);
+      transition: background 0.3s;
+    }
+
+    .btn-pill-book:hover {
+      background-color: var(--primary-dark);
+    }
+
+    /* Right Blob Image */
+    .why-right-visual {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .blob-img-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 420px;
+      height: 380px;
+      border-radius: 60% 40% 50% 50% / 50% 50% 50% 50%;
+      overflow: hidden;
+      box-shadow: 0 15px 35px rgba(194, 59, 101, 0.12);
+      border: 6px solid #fff;
+    }
+
+    .blob-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .blob-quote {
+      position: absolute;
+      top: 15%;
+      right: 12%;
+      font-family: 'Caveat', cursive;
+      font-size: 28px;
+      line-height: 1.15;
+      color: #3b2029;
+      font-weight: 700;
+      text-align: center;
+      transform: rotate(-4deg);
+      z-index: 2;
+    }
+
+    .blob-quote span {
+      display: block;
+      font-size: 24px;
+    }
+
+    /* ================= 5. BOTTOM DARK CTA STRIP ================= */
+    .bottom-dark-cta {
+      background: linear-gradient(90deg, #18090f 0%, #30101d 50%, #4a1529 100%);
+      padding: 24px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #ffffff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .dark-cta-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .dark-lotus-icon {
+      width: 46px;
+      height: 46px;
+      color: #ff78a5;
+    }
+
+    .dark-cta-texts h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.2;
+    }
+
+    .dark-cta-texts p {
+      font-size: 13px;
+      color: #d8c2cb;
+      margin-top: 3px;
+    }
+
+    .btn-dark-book {
+      background-color: var(--primary);
+      color: var(--white);
+      border: none;
+      padding: 12px 28px;
+      border-radius: 50px;
+      font-size: 13.5px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      transition: background 0.3s;
+      white-space: nowrap;
+    }
+
+    .btn-dark-book:hover {
+      background-color: #df4574;
+    }
+
+    /* ================= RESPONSIVE ================= */
+    @media (max-width: 1024px) {
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .why-section {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .services-hero {
+        background: #fdf8f9;
+        min-height: auto;
+      }
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+      .why-features-grid {
+        grid-template-columns: 1fr;
+      }
+      .bottom-dark-cta {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+      }
+      .dark-cta-left {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. NAVBAR -->
+  <header class="navbar">
+    <a href="index.html" class="logo">
+      <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3c-2 4-5 6-9 7 3 2 6 2 9 7 3-5 6-5 9-7-4-1-7-3-9-7z"/>
+        <path d="M12 10c-1.5 2-3 3-6 3.5 2 1.5 4 1.5 6 4.5 2-3 4-3 6-4.5-3-.5-4.5-1.5-6-3.5z"/>
+      </svg>
+      <div class="logo-text">
+        <h1>Glow & Grace</h1>
+        <span>BEAUTY PARLOUR</span>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="service.html" class="active">Services <i class="fa-solid fa-chevron-down" style="font-size: 10px; margin-left: 3px;"></i></a></li>
+      <li><a href="bridal.html">Bridal</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="offer.html">Offers</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="review.html">Reviews</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <button class="btn-header">
+      <i class="fa-regular fa-calendar-check"></i> Book Appointment
+    </button>
+  </header>
+
+  <!-- 2. SERVICES HERO SECTION -->
+  <section class="services-hero">
+    <div class="hero-content">
+      <div class="breadcrumb">HOME &gt; SERVICES</div>
+      <h1 class="hero-title">
+        Our Services
+        <span>Enhance Your Natural Beauty</span>
+      </h1>
+      <p class="hero-desc">
+        From hair care to bridal makeup, we offer a complete range of beauty services to make you look and feel your best.
+      </p>
+
+      <div class="hero-badges">
+        <div class="hero-badge">
+          <div class="badge-icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <div class="badge-texts">
+            <h5>Premium Products</h5>
+            <span>High-quality & safe</span>
+          </div>
+        </div>
+
+        <div class="hero-badge">
+          <div class="badge-icon"><i class="fa-solid fa-user-check"></i></div>
+          <div class="badge-texts">
+            <h5>Skilled Professionals</h5>
+            <span>Expert & certified</span>
+          </div>
+        </div>
+
+        <div class="hero-badge">
+          <div class="badge-icon"><i class="fa-regular fa-heart"></i></div>
+          <div class="badge-texts">
+            <h5>Personalized Care</h5>
+            <span>Tailored to your needs</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. EXPLORE OUR BEAUTY SERVICES (8 CARDS) -->
+  <section class="services-grid-section">
+    <span class="section-tag">OUR SERVICES</span>
+    <h2 class="section-title">Explore Our Beauty Services</h2>
+    <p class="section-sub">Choose from our wide range of professional beauty and wellness services.</p>
+
+    <div class="services-grid">
+
+      <!-- Card 1 -->
+      <div class="service-card">
+        <div class="card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=500&auto=format&fit=crop" alt="Hair Care">
+          <div class="card-floating-icon"><i class="fa-solid fa-scissors"></i></div>
+        </div>
+        <div class="card-body">
+          <div>
+            <h4>Hair Care</h4>
+            <p>Haircuts, styling, coloring, rebonding & more.</p>
+          </div>
+          <a href="contact.html" class="view-details">View Details &rarr;</a>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="service-card">
+        <div class="card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=500&auto=format&fit=crop" alt="Facial & Skin Care">
+          <div class="card-floating-icon"><i class="fa-regular fa-face-smile"></i></div>
+        </div>
+        <div class="card-body">
+          <div>
+            <h4>Facial & Skin Care</h4>
+            <p>Glow naturally with our advanced skincare treatments.</p>
+          </div>
+          <a href="contact.html" class="view-details">View Details &rarr;</a>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="service-card">
+        <div class="card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=500&auto=format&fit=crop" alt="Makeup">
+          <div class="card-floating-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+        </div>
+        <div class="card-body">
+          <div>
+            <h4>Makeup</h4>
+            <p>Every look, every occasion, we've got you covered.</p>
+          </div>
+          <a href="contact.html" class="view-details">View Details &rarr;</a>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="service-card">
+        <div class="card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=500&auto=format&fit=crop" alt="Bridal Makeup">
+          <div class="card-floating-icon"><i class="fa-solid fa-ring"></i></div>
+        </div>
+        <div class="card-body">
+          <div>
+            <h4>Bridal Makeup</h4>
+            <p>Be the most beautiful version of yourself.</p>
+          </div>
+          <a href="bridal.html" class="view-details">View Details &rarr;</a>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="service-card">
+        <div class="card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?q=80&w=500&auto=format&fit=crop" alt="Manicure & Pedicure">
+          <div class="card-floating-icon"><i class="fa-regular fa-hand"></i></div>
+        </div>
+        <div class="card-body">
+          <div>
+            <h4>Manicure & Pedicure</h4>
+            <p>Pamper your hands and feet with the best care.</p>
+          </div>
+          <a href="contact.html" class="view-details">View Details &rarr;</a>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="service-card">
+        <div class="card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1560750588-73207b1ef5b8?q=80&w=500&auto=format&fit=crop" alt="Waxing">
+          <div class="card-floating-icon"><i class="fa-solid fa-feather"></i></div>
+        </div>
+        <div class="card-body">
+          <div>
+            <h4>Waxing</h4>
+            <p>Smooth skin, long-lasting confidence.</p>
+          </div>
+          <a href="contact.html" class="view-details">View Details &rarr;</a>
+        </div>
+      </div>
+
+      <!-- Card 7 -->
+      <div class="service-card">
+        <div class="card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=500&auto=format&fit=crop" alt="Hair Spa">
+          <div class="card-floating-icon"><i class="fa-solid fa-shower"></i></div>
+        </div>
+        <div class="card-body">
+          <div>
+            <h4>Hair Spa</h4>
+            <p>Relax, rejuvenate, and restore your hair.</p>
+          </div>
+          <a href="contact.html" class="view-details">View Details &rarr;</a>
+        </div>
+      </div>
+
+      <!-- Card 8 -->
+      <div class="service-card">
+        <div class="card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=500&auto=format&fit=crop" alt="Other Services">
+          <div class="card-floating-icon"><i class="fa-solid fa-spa"></i></div>
+        </div>
+        <div class="card-body">
+          <div>
+            <h4>Other Services</h4>
+            <p>Threading, de-tan, body polish, bridal packages & more.</p>
+          </div>
+          <a href="contact.html" class="view-details">View Details &rarr;</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 4. WHY CHOOSE US / MORE THAN JUST SERVICES -->
+  <section class="why-section">
+    <div class="why-left">
+      <span class="why-left-tag">WHY CHOOSE US</span>
+      <h2 class="why-title">More Than Just Services</h2>
+      <p class="why-desc">
+        We believe in complete care &mdash; not just beauty. Our expert team, premium products and personalized approach ensure the best experience for every client.
+      </p>
+
+      <div class="why-features-grid">
+        <!-- 1 -->
+        <div class="why-feature-item">
+          <div class="why-feature-icon"><i class="fa-solid fa-user-nurse"></i></div>
+          <div class="why-feature-info">
+            <h5>Expert Professionals</h5>
+            <p>Trained & certified beauticians</p>
+          </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="why-feature-item">
+          <div class="why-feature-icon"><i class="fa-solid fa-leaf"></i></div>
+          <div class="why-feature-info">
+            <h5>Premium Products</h5>
+            <p>Use of high-quality & skin-friendly products</p>
+          </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="why-feature-item">
+          <div class="why-feature-icon"><i class="fa-solid fa-shield-heart"></i></div>
+          <div class="why-feature-info">
+            <h5>Hygienic & Safe</h5>
+            <p>Clean, sanitized and safe environment</p>
+          </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="why-feature-item">
+          <div class="why-feature-icon"><i class="fa-regular fa-gem"></i></div>
+          <div class="why-feature-info">
+            <h5>Customized Care</h5>
+            <p>Services tailored to your unique needs</p>
+          </div>
+        </div>
+      </div>
+
+      <a href="contact.html" class="btn-pill-book">
+        <i class="fa-regular fa-calendar-check"></i> Book Appointment &rarr;
+      </a>
+    </div>
+
+    <!-- Right Spa Visual with Handwritten Note -->
+    <div class="why-right-visual">
+      <div class="blob-img-wrapper">
+        <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=800&auto=format&fit=crop" alt="Spa and Wellness">
+      </div>
+      <div class="blob-quote">
+        Self Care<br>is Always<br>a Good Idea<br>♡
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. BOTTOM DARK CTA STRIP -->
+  <section class="bottom-dark-cta">
+    <div class="dark-cta-left">
+      <svg class="dark-lotus-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3c-2 4-5 6-9 7 3 2 6 2 9 7 3-5 6-5 9-7-4-1-7-3-9-7z"/>
+        <path d="M12 10c-1.5 2-3 3-6 3.5 2 1.5 4 1.5 6 4.5 2-3 4-3 6-4.5-3-.5-4.5-1.5-6-3.5z"/>
+      </svg>
+      <div class="dark-cta-texts">
+        <h3>Ready to Feel Beautiful?</h3>
+        <p>Book your appointment today and let us bring out the best in you.</p>
+      </div>
+    </div>
+
+    <button class="btn-dark-book">
+      <i class="fa-regular fa-calendar-check"></i> Book Appointment &rarr;
+    </button>
+  </section>
+
+  <script src="site.js"></script>
+
+</body>
+</html>

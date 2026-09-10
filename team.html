@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Team - Glow & Grace</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="site.css">
+
+  <style>
+    :root {
+      --primary: #c23b65;
+      --primary-dark: #9e2a4f;
+      --text-dark: #222222;
+      --text-muted: #666666;
+      --white: #ffffff;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Poppins', sans-serif; color: var(--text-dark); background: #ffffff; }
+
+    /* Navbar */
+    .navbar {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 16px 5%; background: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    }
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo-icon { width: 38px; height: 38px; color: var(--primary); }
+    .logo-text h1 { font-family: 'Playfair Display', serif; font-size: 24px; color: #222; line-height: 1; }
+    .logo-text span { font-size: 8px; letter-spacing: 2.5px; font-weight: 600; color: #555; display: block; }
+    .nav-links { display: flex; list-style: none; gap: 24px; }
+    .nav-links a { text-decoration: none; color: #444; font-size: 13.5px; font-weight: 500; }
+    .nav-links a.active { color: var(--primary); font-weight: 600; border-bottom: 2px solid var(--primary); padding-bottom: 4px; }
+    .btn-header {
+      background: var(--primary); color: #fff; border: none; padding: 9px 20px;
+      border-radius: 6px; font-size: 13px; cursor: pointer; display: flex; align-items: center; gap: 7px;
+    }
+
+    /* Hero */
+    .hero-banner {
+      background: linear-gradient(rgba(36, 17, 23, 0.7), rgba(36, 17, 23, 0.7)),
+                  url('https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?q=80&w=1200&auto=format&fit=crop') center/cover;
+      padding: 50px 5%; text-align: center; color: #fff;
+    }
+    .hero-banner h1 { font-family: 'Playfair Display', serif; font-size: 38px; margin-bottom: 5px; }
+    .hero-banner p { font-size: 14px; opacity: 0.9; }
+
+    /* Team Grid */
+    .team-section { padding: 50px 5% 40px; }
+    .team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; margin-bottom: 60px; }
+    .team-card {
+      background: #ffffff; border: 1px solid #f2e2e7; border-radius: 12px;
+      overflow: hidden; text-align: center; transition: transform 0.3s;
+    }
+    .team-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+    .team-img-wrap { width: 100%; height: 260px; overflow: hidden; }
+    .team-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    
+    .team-details { padding: 18px 12px; }
+    .team-details h3 { font-size: 17px; font-weight: 600; color: #222; margin-bottom: 3px; }
+    .team-details .role { font-size: 12px; color: var(--primary); font-weight: 500; margin-bottom: 6px; }
+    .team-details .skills { font-size: 11px; color: #777; }
+
+    /* Bottom 3 Trust Badges */
+    .trust-strip {
+      border-top: 1px solid #fae6ec; padding-top: 40px;
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; text-align: center;
+    }
+    .trust-item { display: flex; flex-direction: column; align-items: center; }
+    .trust-icon {
+      width: 46px; height: 46px; border-radius: 50%; background: #fdf0f4;
+      color: var(--primary); display: flex; align-items: center; justify-content: center;
+      font-size: 18px; margin-bottom: 12px; border: 1px solid #f6d1dd;
+    }
+    .trust-item h4 { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+    .trust-item p { font-size: 12px; color: #777; }
+
+    @media (max-width: 992px) {
+      .nav-links { display: none; }
+      .team-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 576px) {
+      .team-grid, .trust-strip { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <a href="index.html" class="logo">
+      <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3c-2 4-5 6-9 7 3 2 6 2 9 7 3-5 6-5 9-7-4-1-7-3-9-7z"/><path d="M12 10c-1.5 2-3 3-6 3.5 2 1.5 4 1.5 6 4.5 2-3 4-3 6-4.5-3-.5-4.5-1.5-6-3.5z"/></svg>
+      <div class="logo-text"><h1>Glow & Grace</h1><span>BEAUTY PARLOUR</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="service.html">Services</a></li>
+      <li><a href="bridal.html">Bridal</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="offer.html">Offers</a></li>
+      <li><a href="team.html" class="active">Team</a></li><li><a href="review.html">Reviews</a></li><li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="btn-header"><i class="fa-regular fa-calendar-check"></i> Book Appointment</button>
+  </header>
+
+  <!-- HERO -->
+  <div class="hero-banner">
+    <h1>Our Expert Team</h1>
+    <p>Skilled Hands, Beautiful Results</p>
+  </div>
+
+  <!-- TEAM GRID -->
+  <section class="team-section">
+    <div class="team-grid">
+      <!-- Member 1 -->
+      <div class="team-card">
+        <div class="team-img-wrap">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=500&auto=format&fit=crop" alt="Neha Sharma">
+        </div>
+        <div class="team-details">
+          <h3>Neha Sharma</h3>
+          <p class="role">Founder & Senior Stylist</p>
+          <p class="skills">Hair | Makeup</p>
+        </div>
+      </div>
+
+      <!-- Member 2 -->
+      <div class="team-card">
+        <div class="team-img-wrap">
+          <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=500&auto=format&fit=crop" alt="Riya Singh">
+        </div>
+        <div class="team-details">
+          <h3>Riya Singh</h3>
+          <p class="role">Makeup Artist</p>
+          <p class="skills">Bridal | Party</p>
+        </div>
+      </div>
+
+      <!-- Member 3 -->
+      <div class="team-card">
+        <div class="team-img-wrap">
+          <img src="https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?q=80&w=500&auto=format&fit=crop" alt="Pooja Verma">
+        </div>
+        <div class="team-details">
+          <h3>Pooja Verma</h3>
+          <p class="role">Skin Specialist</p>
+          <p class="skills">Facial | Skin Care</p>
+        </div>
+      </div>
+
+      <!-- Member 4 -->
+      <div class="team-card">
+        <div class="team-img-wrap">
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=500&auto=format&fit=crop" alt="Anjali Gupta">
+        </div>
+        <div class="team-details">
+          <h3>Anjali Gupta</h3>
+          <p class="role">Nail Artist</p>
+          <p class="skills">Manicure | Pedicure</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3 BADGES -->
+    <div class="trust-strip">
+      <div class="trust-item">
+        <div class="trust-icon"><i class="fa-solid fa-ribbon"></i></div>
+        <h4>Professional</h4>
+        <p>Certified & Trained</p>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+        <h4>Creative</h4>
+        <p>Latest Trends</p>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon"><i class="fa-solid fa-heart"></i></div>
+        <h4>Friendly</h4>
+        <p>Your Comfort Matters</p>
+      </div>
+    </div>
+  </section>
+
+  <script src="site.js"></script>
+</body>
+</html>

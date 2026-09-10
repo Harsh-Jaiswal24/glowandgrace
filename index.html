@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glow & Grace - Beauty Parlour</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Poppins:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="site.css">
+
+  <style>
+    :root {
+      --primary: #c23b65;
+      --primary-dark: #9e2a4f;
+      --primary-light: #fdf0f3;
+      --text-dark: #222222;
+      --text-muted: #666666;
+      --bg-light: #fffafb;
+      --border-color: #f1dde3;
+      --white: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--text-dark);
+      background-color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    /* ================= 1. HEADER / NAVBAR ================= */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 5%;
+      background: var(--white);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      width: 44px;
+      height: 44px;
+      color: var(--primary);
+    }
+
+    .logo-text h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: #222;
+      line-height: 1;
+    }
+
+    .logo-text span {
+      font-size: 9px;
+      letter-spacing: 3px;
+      font-weight: 600;
+      color: #444;
+      display: block;
+      margin-top: 3px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      gap: 28px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #444;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.3s;
+      position: relative;
+    }
+
+    .nav-links a.active {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .nav-links a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: var(--primary);
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .btn-header {
+      background-color: var(--primary);
+      color: var(--white);
+      border: none;
+      padding: 10px 22px;
+      border-radius: 6px;
+      font-size: 13.5px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn-header:hover {
+      background-color: var(--primary-dark);
+    }
+
+    /* ================= 2. HERO SECTION ================= */
+    .hero {
+      position: relative;
+      background: linear-gradient(90deg, #fdf8f9 35%, rgba(253, 248, 249, 0.7) 60%, rgba(253, 248, 249, 0) 100%),
+                  url('https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=1600&auto=format&fit=crop') right center/contain no-repeat;
+      min-height: 580px;
+      padding: 40px 5% 60px;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-container {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .hero-content {
+      max-width: 580px;
+      z-index: 2;
+    }
+
+    .hero-tagline {
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 52px;
+      line-height: 1.15;
+      font-weight: 700;
+      color: #1f1f1f;
+      margin-bottom: 18px;
+    }
+
+    .hero-title span {
+      font-style: italic;
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .hero-desc {
+      color: var(--text-muted);
+      font-size: 14px;
+      line-height: 1.7;
+      margin-bottom: 28px;
+      max-width: 480px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 45px;
+    }
+
+    .btn-main {
+      background-color: var(--primary);
+      color: var(--white);
+      border: none;
+      padding: 12px 24px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(194, 59, 101, 0.25);
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      color: #333;
+      border: 1px solid #d5c4cb;
+      padding: 12px 24px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      background: #ffffff90;
+    }
+
+    .btn-outline i {
+      color: var(--primary);
+      font-size: 12px;
+    }
+
+    /* 4 Feature Badges */
+    .hero-features {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+      max-width: 520px;
+    }
+
+    .feature-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+    }
+
+    .feature-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: -8px;
+      top: 15%;
+      height: 70%;
+      width: 1px;
+      background: #e8d7dc;
+    }
+
+    .feature-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid #f3c2d1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-size: 14px;
+      margin-bottom: 8px;
+      background: #fff;
+    }
+
+    .feature-item p {
+      font-size: 11px;
+      font-weight: 500;
+      color: #333;
+      line-height: 1.3;
+    }
+
+    /* Right Aesthetic quote */
+    .hero-quote-box {
+      position: absolute;
+      right: 6%;
+      top: 25%;
+      text-align: right;
+      color: var(--white);
+      text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      z-index: 3;
+    }
+
+    .hero-quote-box h3 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 46px;
+      line-height: 1.1;
+      font-weight: 400;
+    }
+
+    .hero-quote-box .heart {
+      font-family: 'Caveat', cursive;
+      font-size: 26px;
+      display: block;
+      margin-top: 5px;
+      transform: rotate(-10deg);
+    }
+
+    /* ================= 3. POPULAR SERVICES ================= */
+    .services-section {
+      padding: 50px 5% 40px;
+      background-color: #fff;
+    }
+
+    .services-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 25px;
+    }
+
+    .services-title-area .sub {
+      color: var(--primary);
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .services-title-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .services-title-wrapper h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      color: #1f1f1f;
+      font-weight: 700;
+    }
+
+    .ornament-line {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .ornament-line span {
+      width: 50px;
+      height: 1px;
+      background-color: #d88fa7;
+    }
+
+    .ornament-line i {
+      color: var(--primary);
+      font-size: 14px;
+    }
+
+    .services-header-desc {
+      color: var(--text-muted);
+      font-size: 12px;
+      margin-top: 6px;
+    }
+
+    .view-all-link {
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* 7 Cards Grid */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 14px;
+      overflow-x: auto;
+      padding-bottom: 15px;
+    }
+
+    .service-card {
+      background: #ffffff;
+      border: 1px solid #f2e3e7;
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s, box-shadow 0.3s;
+      min-width: 155px;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 20px rgba(194, 59, 101, 0.08);
+    }
+
+    .card-img-wrap {
+      position: relative;
+      height: 130px;
+      width: 100%;
+    }
+
+    .card-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .card-icon {
+      position: absolute;
+      bottom: -16px;
+      left: 14px;
+      width: 32px;
+      height: 32px;
+      background: var(--white);
+      border: 1px solid #f0bacb;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-size: 13px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    .card-body {
+      padding: 24px 14px 14px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
+    }
+
+    .card-body h4 {
+      font-size: 14px;
+      font-weight: 600;
+      color: #222;
+      margin-bottom: 6px;
+    }
+
+    .card-body p {
+      font-size: 11px;
+      color: #777;
+      line-height: 1.4;
+      margin-bottom: 14px;
+    }
+
+    .card-link {
+      font-size: 11px;
+      color: var(--primary);
+      font-weight: 600;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: auto;
+    }
+
+    /* ================= 4. BOTTOM STATS BANNER ================= */
+    .bottom-banner {
+      margin: 20px 5% 40px;
+      background: linear-gradient(135deg, #fcedf1 0%, #f7e1e7 100%);
+      border-radius: 16px;
+      padding: 28px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Background corner leaves effect */
+    .bottom-banner::before,
+    .bottom-banner::after {
+      content: '🌸';
+      font-size: 80px;
+      opacity: 0.12;
+      position: absolute;
+      pointer-events: none;
+    }
+    .bottom-banner::before { left: -10px; bottom: -20px; }
+    .bottom-banner::after { right: 260px; top: -20px; }
+
+    .banner-quote {
+      font-family: 'Caveat', cursive;
+      font-size: 32px;
+      line-height: 1.1;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .banner-quote span {
+      display: block;
+      font-size: 28px;
+    }
+
+    .banner-stats-group {
+      display: flex;
+      align-items: center;
+      gap: 45px;
+    }
+
+    .stat-box {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .stat-icon {
+      font-size: 26px;
+      color: var(--primary);
+    }
+
+    .stat-text h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #222;
+      line-height: 1;
+    }
+
+    .stat-text p {
+      font-size: 12px;
+      color: #666;
+      margin-top: 4px;
+    }
+
+    .banner-btn {
+      background-color: #9e2a4f;
+      color: #fff;
+      border: none;
+      padding: 13px 26px;
+      border-radius: 50px;
+      font-size: 13.5px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+      z-index: 2;
+    }
+
+    .banner-btn:hover {
+      background-color: var(--primary);
+    }
+
+    /* ================= RESPONSIVE ================= */
+    @media (max-width: 1200px) {
+      .services-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .hero {
+        background: #fdf8f9;
+        text-align: center;
+      }
+      .hero-container {
+        flex-direction: column;
+      }
+      .hero-content {
+        max-width: 100%;
+      }
+      .hero-tagline { justify-content: center; }
+      .hero-actions { justify-content: center; }
+      .hero-features {
+        margin: 0 auto;
+      }
+      .hero-quote-box {
+        display: none;
+      }
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .bottom-banner {
+        flex-direction: column;
+        gap: 25px;
+        text-align: center;
+      }
+      .banner-stats-group {
+        flex-direction: column;
+        gap: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. HEADER / NAVBAR -->
+  <header class="navbar">
+    <a href="index.html" class="logo">
+      <!-- Lotus SVG icon -->
+      <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3c-2 4-5 6-9 7 3 2 6 2 9 7 3-5 6-5 9-7-4-1-7-3-9-7z"/>
+        <path d="M12 10c-1.5 2-3 3-6 3.5 2 1.5 4 1.5 6 4.5 2-3 4-3 6-4.5-3-.5-4.5-1.5-6-3.5z"/>
+      </svg>
+      <div class="logo-text">
+        <h1>Glow & Grace</h1>
+        <span>BEAUTY PARLOUR</span>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="service.html">Services<i class="fa-solid fa-chevron-down" style="font-size: 10px; margin-left: 3px;"></i></a></li>
+      <li><a href="bridal.html">Bridal</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="offer.html">Offers</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="review.html">Reviews</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <button class="btn-header">
+      <i class="fa-regular fa-calendar-check"></i> Book Appointment
+    </button>
+  </header>
+
+  <!-- 2. HERO SECTION -->
+  <section class="hero">
+    <div class="hero-container">
+      <div class="hero-content">
+        <div class="hero-tagline">
+          LOOK GOOD &bull; FEEL BEAUTIFUL &bull; BE YOU
+        </div>
+        <h1 class="hero-title">
+          Professional Beauty<br>Services for <span>Every You</span>
+        </h1>
+        <p class="hero-desc">
+          At Glow & Grace, we believe that every individual deserves to feel confident and beautiful. Our expert team offers a wide range of beauty and grooming services in a relaxing and hygienic environment.
+        </p>
+
+        <div class="hero-actions">
+          <button class="btn-main">
+            <i class="fa-regular fa-calendar-check"></i> Book Appointment
+          </button>
+          <button class="btn-outline">
+            <i class="fa-solid fa-play"></i> Our Services
+          </button>
+        </div>
+
+        <!-- 4 Badges -->
+        <div class="hero-features">
+          <div class="feature-item">
+            <div class="feature-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <p>Hygienic & Safe<br>Environment</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon"><i class="fa-solid fa-users"></i></div>
+            <p>Expert & Trained<br>Staff</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon"><i class="fa-regular fa-star"></i></div>
+            <p>Top Quality<br>Products</p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon"><i class="fa-regular fa-heart"></i></div>
+            <p>Customer<br>Satisfaction</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Handwriting Quote (Right Side) -->
+      <div class="hero-quote-box">
+        <h3>Beauty<br>is a form<br>of self love</h3>
+        <span class="heart">&hearts;</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. POPULAR SERVICES SECTION -->
+  <section class="services-section">
+    <div class="services-header">
+      <div class="services-title-area">
+        <span class="sub">POPULAR SERVICES</span>
+        <div class="services-title-wrapper">
+          <h2>Our Best Services</h2>
+          <div class="ornament-line">
+            <span></span>
+            <i class="fa-solid fa-spa"></i>
+            <span></span>
+          </div>
+        </div>
+        <p class="services-header-desc">
+          From hair care to bridal makeup, we offer a complete range of beauty services to make you look and feel your best.
+        </p>
+      </div>
+
+      <a href="service.html" class="view-all-link">
+        View All Services <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+
+    <!-- 7 Services Cards -->
+    <div class="services-grid">
+      <!-- Card 1 -->
+      <div class="service-card">
+        <div class="card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=400&auto=format&fit=crop" alt="Hair Care">
+          <div class="card-icon"><i class="fa-solid fa-scissors"></i></div>
+        </div>
+        <div class="card-body">
+          <h4>Hair Care</h4>
+          <p>Haircuts, styling, coloring, rebonding & more.</p>
+          <a href="service.html" class="card-link">Know More <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="service-card">
+        <div class="card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=400&auto=format&fit=crop" alt="Facial & Skin Care">
+          <div class="card-icon"><i class="fa-regular fa-face-smile"></i></div>
+        </div>
+        <div class="card-body">
+          <h4>Facial & Skin Care</h4>
+          <p>Glow naturally with our advanced skincare treatments.</p>
+          <a href="service.html" class="card-link">Know More <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="service-card">
+        <div class="card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=400&auto=format&fit=crop" alt="Makeup">
+          <div class="card-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+        </div>
+        <div class="card-body">
+          <h4>Makeup</h4>
+          <p>Every look, every occasion, we've got you covered.</p>
+          <a href="service.html" class="card-link">Know More <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="service-card">
+        <div class="card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=400&auto=format&fit=crop" alt="Bridal Makeup">
+          <div class="card-icon"><i class="fa-solid fa-ring"></i></div>
+        </div>
+        <div class="card-body">
+          <h4>Bridal Makeup</h4>
+          <p>Be the most beautiful version of yourself.</p>
+          <a href="bridal.html" class="card-link">Know More <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="service-card">
+        <div class="card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?q=80&w=400&auto=format&fit=crop" alt="Manicure & Pedicure">
+          <div class="card-icon"><i class="fa-regular fa-hand"></i></div>
+        </div>
+        <div class="card-body">
+          <h4>Manicure & Pedicure</h4>
+          <p>Pamper your hands and feet with the best care.</p>
+          <a href="service.html" class="card-link">Know More <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="service-card">
+        <div class="card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1560750588-73207b1ef5b8?q=80&w=400&auto=format&fit=crop" alt="Waxing">
+          <div class="card-icon"><i class="fa-solid fa-feather"></i></div>
+        </div>
+        <div class="card-body">
+          <h4>Waxing</h4>
+          <p>Smooth skin, long lasting confidence.</p>
+          <a href="service.html" class="card-link">Know More <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <!-- Card 7 -->
+      <div class="service-card">
+        <div class="card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=400&auto=format&fit=crop" alt="Hair Spa">
+          <div class="card-icon"><i class="fa-solid fa-shower"></i></div>
+        </div>
+        <div class="card-body">
+          <h4>Hair Spa</h4>
+          <p>Relax, rejuvenate, and restore your hair.</p>
+          <a href="service.html" class="card-link">Know More <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. BOTTOM STATS BANNER -->
+  <section class="bottom-banner">
+    <div class="banner-quote">
+      Your Beauty<br><span>Our Priority ♡</span>
+    </div>
+
+    <div class="banner-stats-group">
+      <div class="stat-box">
+        <div class="stat-icon"><i class="fa-regular fa-calendar-days"></i></div>
+        <div class="stat-text">
+          <h3>10K+</h3>
+          <p>Happy Clients</p>
+        </div>
+      </div>
+
+      <div class="stat-box">
+        <div class="stat-icon"><i class="fa-regular fa-star"></i></div>
+        <div class="stat-text">
+          <h3>4.9/5</h3>
+          <p>Average Rating</p>
+        </div>
+      </div>
+
+      <div class="stat-box">
+        <div class="stat-icon"><i class="fa-solid fa-user-group"></i></div>
+        <div class="stat-text">
+          <h3>5+</h3>
+          <p>Years of Experience</p>
+        </div>
+      </div>
+    </div>
+
+    <button class="banner-btn">
+      Book Appointment <i class="fa-solid fa-arrow-right"></i>
+    </button>
+  </section>
+
+  <script src="site.js"></script>
+
+</body>
+</html>
